@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career OPS · Kaihuan Huang</title>
+<meta name="description" content="A job-market data platform: every open software posting from employers' own hiring systems, collected nightly, ranked against a resume, with tailored one-page resume drafts.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B5CAD'/%3E%3Cpath d='M8 22l5-6 4 3 7-9' stroke='%23FDE68A' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#FFFFFF;--ink:#16191A;--ink-2:#3D4447;--muted:#5F686B;--line:#DFE3E5;--panel:#F4F6F7;
+  --accent:#0B5CAD;--me:#DCEBFA;--me-ink:#0B3F75;--ok:#1E7A45;--ok-bg:#E3F4EA;--bad:#B42318;--bad-bg:#FDECEA;--warn:#8A5A00;--warn-bg:#FFF4D6;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#101315;--ink:#E6EAEC;--ink-2:#C2CACD;--muted:#98A2A6;--line:#2A3134;--panel:#181D1F;
+  --accent:#6CB2F5;--me:#16304A;--me-ink:#B9DAFB;--ok:#5BC98A;--ok-bg:#12291D;--bad:#F97066;--bad-bg:#3A1714;--warn:#F5C451;--warn-bg:#33280C;
+}}
+:root[data-theme="dark"]{
+  --bg:#101315;--ink:#E6EAEC;--ink-2:#C2CACD;--muted:#98A2A6;--line:#2A3134;--panel:#181D1F;
+  --accent:#6CB2F5;--me:#16304A;--me-ink:#B9DAFB;--ok:#5BC98A;--ok-bg:#12291D;--bad:#F97066;--bad-bg:#3A1714;--warn:#F5C451;--warn-bg:#33280C;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;padding:48px 16px 64px}
+main{max-width:960px;margin:0 auto}
+h1{font-size:clamp(1.7rem,4vw,2.2rem);line-height:1.2;margin:0;letter-spacing:-.01em}
+h2{font-size:1.15rem;margin:52px 0 10px}
+h3{font-size:.8rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+p{margin:0 0 14px}
+a{color:var(--accent);text-underline-offset:2px}
+code{font-family:var(--mono);font-size:.88em;background:var(--panel);padding:1px 4px;border-radius:3px}
+pre{font-family:var(--mono);font-size:.82rem;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px;overflow-x:auto;margin:0 0 12px}
+.dek{font-size:1.1rem;color:var(--ink-2);margin-top:12px}
+.meta{font-size:.85rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:14px;align-items:center}
+.badge{display:inline-block;font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--ink-2)}
+.muted{color:var(--muted);font-size:.88rem}
+button,input{font:inherit}
+button{font-size:.88rem;background:transparent;color:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:6px 12px;cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+button[disabled]{opacity:.5;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input[type=text]{font-size:.95rem;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px 10px;min-width:0}
+.layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px}
+@media (max-width:760px){.layout{grid-template-columns:minmax(0,1fr)}}
+.card{border:1px solid var(--line);border-radius:10px;padding:14px;min-width:0}
+.chat{display:flex;flex-direction:column;gap:8px;min-height:260px;max-height:420px;overflow-y:auto;padding:2px}
+.msg{max-width:88%;padding:8px 12px;border-radius:12px;white-space:pre-wrap;word-break:break-word;font-size:.95rem}
+.msg.me{align-self:flex-end;background:var(--me);color:var(--me-ink);border-bottom-right-radius:4px}
+.msg.bot{align-self:flex-start;background:var(--panel);border-bottom-left-radius:4px}
+.msg.tool{align-self:stretch;max-width:none;font-family:var(--mono);font-size:.78rem;background:var(--ok-bg);color:var(--ok);border-radius:6px}
+.composer{display:flex;gap:8px;margin-top:10px}
+.composer input{flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chips button{font-size:.8rem;border-radius:999px;padding:3px 10px}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;padding:6px 8px 6px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.76rem;letter-spacing:.03em}
+td.src{color:var(--muted);font-size:.8rem;white-space:nowrap}
+.empty{color:var(--muted)}
+.pill{display:inline-block;font-size:.76rem;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}
+.pill.bad{background:var(--bad-bg);color:var(--bad)}
+.pill.warn{background:var(--warn-bg);color:var(--warn)}
+.side{display:grid;gap:16px;align-content:start}
+#actions code{overflow-wrap:anywhere}
+.tbl code{white-space:nowrap}
+.gate{font-size:.85rem;color:var(--muted);margin-top:8px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.row input{flex:1 1 220px}
+.tbl{overflow-x:auto}
+.nums td:first-child{width:38%;color:var(--ink-2)}
+.status{font-size:.88rem;color:var(--muted);margin-top:8px}
+h3.sub{margin-top:26px}
+.diagram{margin:18px 0 22px;overflow-x:auto}
+.diagram svg{display:block;width:100%;min-width:760px;height:auto;color:var(--ink);font-family:var(--sans)}
+.diagram .zone{fill:var(--me);opacity:.55}
+.diagram .zl{fill:var(--me-ink);font-size:12px;font-weight:600;letter-spacing:.04em}
+.diagram .ol{fill:var(--muted);font-size:12px;font-weight:600;letter-spacing:.04em}
+.diagram .bx rect{fill:var(--bg);stroke:currentColor;stroke-width:1.2}
+.diagram .t{fill:currentColor;font-size:13px;font-weight:600}
+.diagram .s{fill:var(--muted);font-size:11.5px}
+.diagram .e line{stroke:currentColor;stroke-width:1.2}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:8px}
+figure{margin:0}
+.dec article{border-top:1px solid var(--line);padding:14px 0 4px}
+.dec h3{text-transform:none;letter-spacing:0;font-size:1rem;color:var(--ink);margin:0 0 6px}
+.dec dl{display:grid;grid-template-columns:84px minmax(0,1fr);gap:4px 12px;margin:0}
+.dec dt{color:var(--muted);font-size:.82rem;padding-top:2px}
+.dec dd{margin:0;font-size:.95rem}
+@media (max-width:560px){.dec dl{grid-template-columns:minmax(0,1fr)}}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0}
+.stat{border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.stat b{display:block;font-size:1.5rem;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.stat span{font-size:.82rem;color:var(--muted)}
+.bars{display:grid;gap:6px;margin:10px 0}
+.bar{display:grid;grid-template-columns:120px minmax(0,1fr) 70px;gap:10px;align-items:center;font-size:.88rem}
+.bar i{display:block;height:10px;border-radius:5px;background:var(--accent)}
+.bar em{font-style:normal;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.diff{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0}
+.diff .before{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+.diff .after{margin-top:6px}
+.diff .why{font-size:.84rem;color:var(--muted);margin-top:6px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:10px 0}
+.steps li{counter-increment:s;padding:6px 0 6px 34px;position:relative;border-bottom:1px solid var(--line)}
+.steps li::before{content:counter(s);position:absolute;left:0;top:7px;width:22px;height:22px;border-radius:50%;background:var(--me);color:var(--me-ink);font-size:.8rem;text-align:center;line-height:22px;font-weight:600}
+
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Career OPS</h1>
+    <p class="dek">I built a job-market data platform for my own job search. Every night it collects open software jobs from employers' own hiring systems, ranks them against my resume, and drafts a tailored one-page resume for the best matches.</p>
+    <div class="meta"><span>Kaihuan Huang</span><span id="updated">Loading the latest numbers…</span><span class="badge">Public job data only · the tailoring example uses a sample resume</span></div>
+  </header>
+
+  <section aria-labelledby="live">
+    <h2 id="live">Live numbers from last night's run</h2>
+    <div class="stats" id="stats"></div>
+    <p class="muted">The employer's publish date matters: a third-party job feed I checked labelled postings "recent" when it first saw them, and only 16% of those were really posted in the last 3 days. So I rank by the date the employer's own system gives.</p>
+  </section>
+
+  <section aria-labelledby="sources">
+    <h2 id="sources">Where the postings come from</h2>
+    <p class="muted">Open software roles by hiring system. I read the employers' own systems first; LinkedIn and job boards only fill gaps.</p>
+    <div class="bars" id="bars"></div>
+  </section>
+
+  <section aria-labelledby="fresh">
+    <h2 id="fresh">AI engineering roles posted in the last 3 days (US)</h2>
+    <div class="tbl"><table><thead><tr><th>Posted</th><th>Role</th><th>Company</th><th>Location</th><th>Source</th></tr></thead><tbody id="recent"></tbody></table></div>
+  </section>
+
+  <section aria-labelledby="demand">
+    <h2 id="demand">What AI engineering job descriptions ask for</h2>
+    <p class="muted" id="demand-note"></p>
+    <div class="tbl"><table><thead><tr><th>Requirement</th><th>Finance companies</th><th>All AI roles</th></tr></thead><tbody id="demand-rows"></tbody></table></div>
+  </section>
+
+  <section aria-labelledby="how">
+    <h2 id="how">How the nightly run works</h2>
+    <ol class="steps">
+      <li><b>Collect.</b> Read every company's job board (Greenhouse, Lever, Ashby, Workday, iCIMS, Oracle and more). Fast sources first, slow ones after.</li>
+      <li><b>Store.</b> One SQLite table that never deletes: a posting is marked closed only after it is missing twice in a row, and every status change is kept.</li>
+      <li><b>Fetch job descriptions</b> for new roles, one request per second per site.</li>
+      <li><b>Score.</b> Compare each job description with the resume using local open models (embeddings, then a reranker), plus rules for level and location.</li>
+      <li><b>Tailor</b> a one-page resume for the 10 best new matches (next section).</li>
+      <li><b>Brief.</b> A morning summary: new roles, best matches, drafts, and questions for me to answer.</li>
+    </ol>
+    <p class="muted">Each step starts when the step it needs is done. Model work runs only in a fixed night window. Every step writes its result to a status file, and a failure sends an alert.</p>
+  </section>
+
+  <section aria-labelledby="tailor">
+    <h2 id="tailor">How the resume tailoring stays honest</h2>
+    <p>For each job, the model rewrites one bullet at a time to use the job's own words for the same work. Then a set of plain checks decides what happens to each change:</p>
+    <table class="nums"><tbody>
+      <tr><td><span class="pill ok">Ready</span></td><td>Same facts, the job's vocabulary. Goes into the PDF.</td></tr>
+      <tr><td><span class="pill warn">Confirm</span></td><td>Adds something my records don't show yet (a skill, a stronger claim). Kept, but marked for me to confirm. My answer is saved as a fact for every later resume.</td></tr>
+      <tr><td><span class="pill bad">Rejected</span></td><td>A number the model made up, a changed company or date, filler words, more than three new keywords in one bullet, broken LaTeX, or a bullet that doubled in length.</td></tr>
+    </tbody></table>
+    <h3 class="sub">Example (sample resume)</h3>
+    <div class="diff"><span class="pill ok">Ready</span>
+      <div class="before">Built a booking service with FastAPI and PostgreSQL, with SMS confirmation and self-service cancellation.</div>
+      <div class="after">Built and deployed a FastAPI / PostgreSQL booking API with SMS confirmation and self-service cancellation.</div>
+      <div class="why">Same facts; uses the job's words "API" and "deployed".</div></div>
+    <div class="diff"><span class="pill warn">Confirm</span>
+      <div class="before">Wrote rule-based checks that stop a booking until the guest replies "yes".</div>
+      <div class="after">Added a human-in-the-loop confirmation step: the agent cannot book until the guest replies "yes".</div>
+      <div class="why">"Human in the loop" is the job's term for this. The candidate confirms it fits.</div></div>
+    <div class="diff"><span class="pill bad">Rejected</span>
+      <div class="before">Measured 1.2 s p95 latency over 40 test conversations.</div>
+      <div class="after">Spearheaded latency work that cut p95 by 60% across 12 services.</div>
+      <div class="why">New numbers (60%, 12) that are not in the records, and filler ("spearheaded").</div></div>
+    <p class="muted">The page fit is checked on the real PDF: if a version runs over one page, the longest rewrite goes back to its original wording before any bullet is dropped.</p>
+  </section>
+
+  <section aria-labelledby="eng">
+    <h2 id="eng">Engineering choices</h2>
+    <div class="dec">
+      <article><h3>First-hand data first</h3><dl><dt>Chose</dt><dd>The employer's own hiring system and its publish date.</dd><dt>Why</dt><dd>A third-party feed's "recent" label was right only 16% of the time.</dd></dl></article>
+      <article><h3>Rules check the model</h3><dl><dt>Chose</dt><dd>The model drafts; plain code decides what is kept.</dd><dt>Why</dt><dd>A small local model rewriting ten bullets in one call gave one usable rewrite. One bullet per call, plus checks, gave ten of ten.</dd></dl></article>
+      <article><h3>Local models first</h3><dl><dt>Chose</dt><dd>Open models on my own GPU server; a cloud model is optional.</dd><dt>Why</dt><dd>No cost per run, and my resume and applications never leave my machines.</dd></dl></article>
+      <article><h3>Safe releases</h3><dl><dt>Chose</dt><dd>One release command: run every test, build, back up the database, switch, check the pages, roll back automatically if a check fails.</dd><dt>Why</dt><dd>The server also runs other production services, so nothing may break them.</dd></dl></article>
+      <article><h3>Private by default</h3><dl><dt>Chose</dt><dd>The full dashboard is private. This page is a static copy with public job data only, refreshed every night.</dd><dt>Why</dt><dd>The dashboard holds my resume and applications; visitors to this page never reach my server.</dd></dl></article>
+    </div>
+  </section>
+
+  <footer>
+    <a href="https://kaihuan-huang.github.io/">Home</a> · <a href="https://kaihuan-huang.github.io/booking-agent-demo/">Booking Agent</a> · <a href="https://kaihuan-huang.github.io/refund-agent-demo/">Refund Agent</a> · <a href="https://kaihuan-huang.github.io/pii-detector-demo/">PII Detector Demo</a> · <a href="https://kaihuan-huang.github.io/ledger-demo/">Tamper-Evident Ledger</a> · <a href="https://kaihuan-huang.github.io/llm-arch-viz/">LLM Architecture Cards</a> · <a href="https://github.com/kaihuan-huang">GitHub</a> · <a href="https://linkedin.com/in/kaihuanhuang/">LinkedIn</a>
+  </footer>
+</main>
+<script>
+(() => {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const fmt = (n) => Number(n).toLocaleString("en-US");
+  const name = (s) => /^[a-z0-9-]+$/.test(s || "") ? s.charAt(0).toUpperCase() + s.slice(1) : (s || "");
+  fetch("data.json", { cache: "no-store" }).then((r) => r.json()).then((d) => {
+    const t = d.totals;
+    $("updated").textContent = "Updated " + new Date(d.generated_at).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" });
+    $("stats").innerHTML = [
+      [fmt(t.tracked), "postings tracked (never deleted)"],
+      [fmt(t.open_cs), "open software roles"],
+      [fmt(t.posted_24h_cs), "posted in the last 24 hours"],
+      [fmt(t.posted_3d_cs), "posted in the last 3 days"],
+      [t.employer_date_pct + "%", "carry the employer's own publish date"],
+    ].map(([b, s]) => `<div class="stat"><b>${b}</b><span>${s}</span></div>`).join("");
+    const max = Math.max(...d.sources.map((s) => s.open_cs));
+    $("bars").innerHTML = d.sources.map((s) => `<div class="bar"><span>${esc(s.name)}</span><i style="width:${(100 * s.open_cs / max).toFixed(1)}%"></i><em>${fmt(s.open_cs)}</em></div>`).join("");
+    $("recent").innerHTML = d.recent.map((r) => `<tr><td class="src">${esc(r.posted)}</td><td><a href="${esc(r.url)}" rel="noopener" target="_blank">${esc(r.title)}</a></td><td>${esc(name(r.company))}</td><td>${esc(r.location)}</td><td class="src">${esc(r.source)}</td></tr>`).join("") || `<tr><td colspan="5" class="empty">No roles in the window.</td></tr>`;
+    if (d.demand) {
+      $("demand-note").textContent = `From ${fmt(d.demand.jds)} real job descriptions (${d.demand.finance_jds} at finance companies), ${d.demand.date}. A description counts once if it mentions the requirement — a direction, not an exact measure.`;
+      $("demand-rows").innerHTML = d.demand.rows.map((r) => `<tr><td>${esc(r.requirement)}</td><td>${r.finance}%</td><td>${r.all ?? "—"}%</td></tr>`).join("");
+    }
+  }).catch(() => { $("updated").textContent = "Live numbers unavailable right now."; });
+})();
+</script>
+</body>
+</html>

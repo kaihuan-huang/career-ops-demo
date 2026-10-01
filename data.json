@@ -1,0 +1,283 @@
+{
+ "generated_at": "2026-10-01T06:22:15Z",
+ "totals": {
+  "tracked": 976084,
+  "open_cs": 150571,
+  "posted_24h_cs": 3190,
+  "posted_3d_cs": 12974,
+  "employer_date_pct": 75
+ },
+ "sources": [
+  {
+   "name": "Workday",
+   "open_cs": 51184
+  },
+  {
+   "name": "Greenhouse",
+   "open_cs": 42574
+  },
+  {
+   "name": "Ashby",
+   "open_cs": 18487
+  },
+  {
+   "name": "iCIMS",
+   "open_cs": 16613
+  },
+  {
+   "name": "Lever",
+   "open_cs": 13414
+  },
+  {
+   "name": "Oracle Cloud",
+   "open_cs": 5183
+  },
+  {
+   "name": "LinkedIn",
+   "open_cs": 2524
+  },
+  {
+   "name": "Other job boards",
+   "open_cs": 592
+  }
+ ],
+ "recent": [
+  {
+   "company": "wiley",
+   "title": "AI Solutions Engineer",
+   "location": "Hoboken (HQ), NJ, USA",
+   "posted": "2026-09-30",
+   "url": "https://wiley.wd1.myworkdayjobs.com/wiley_careers/job/Hoboken-HQ-NJ-USA/AI-Solutions-Engineer_R2601331",
+   "source": "Workday"
+  },
+  {
+   "company": "vanguard",
+   "title": "Machine Learning Engineer, Specialist",
+   "location": "Malvern, PA",
+   "posted": "2026-09-30",
+   "url": "https://vanguard.wd5.myworkdayjobs.com/vanguard_external/job/Malvern-PA/Machine-Learning-Engineer--Specialist_177787",
+   "source": "Workday"
+  },
+  {
+   "company": "synnex",
+   "title": "Senior SI/PI Engineer - AI and Compute Server Design",
+   "location": "Fremont, CA",
+   "posted": "2026-09-30",
+   "url": "https://synnex.wd5.myworkdayjobs.com/hyvecareers/job/Fremont-CA/Senior-SI-PI-Engineer---AI-and-Compute-Server-Design_R56113",
+   "source": "Workday"
+  },
+  {
+   "company": "porch",
+   "title": "Senior AI Engineer I",
+   "location": "IN Remote",
+   "posted": "2026-09-30",
+   "url": "https://porch.wd1.myworkdayjobs.com/careers/job/IN-Remote/Senior-AI-Engineer-I_JR101659-1",
+   "source": "Workday"
+  },
+  {
+   "company": "motorolasolutions",
+   "title": "Senior Applied AI Engineer – Supply Chain",
+   "location": "Chicago, IL",
+   "posted": "2026-09-30",
+   "url": "https://motorolasolutions.wd5.myworkdayjobs.com/careers/job/Chicago-IL/Senior-Applied-AI-Engineer---Supply-Chain_R69228-1",
+   "source": "Workday"
+  },
+  {
+   "company": "kla",
+   "title": "Sr. AI/ML Engineer - Systems",
+   "location": "Ann Arbor, MI",
+   "posted": "2026-09-30",
+   "url": "https://kla.wd1.myworkdayjobs.com/annarbor/job/Ann-Arbor-MI/AI-ML-Engineer---Systems_2634371",
+   "source": "Workday"
+  },
+  {
+   "company": "kcura",
+   "title": "Advanced Software Engineer - Ai Surfaces",
+   "location": "Illinois",
+   "posted": "2026-09-30",
+   "url": "https://kcura.wd1.myworkdayjobs.com/external_career_site/job/Illinois/Advanced-Software-Engineer---Ai-Surfaces_26-0439",
+   "source": "Workday"
+  },
+  {
+   "company": "kcura",
+   "title": "Senior Software Engineer - AI Surfaces",
+   "location": "Illinois",
+   "posted": "2026-09-30",
+   "url": "https://kcura.wd1.myworkdayjobs.com/external_career_site/job/Illinois/Senior-Software-Engineer---AI-Surfaces_26-0441",
+   "source": "Workday"
+  },
+  {
+   "company": "kcura",
+   "title": "Lead Software Engineer - AI Surfaces",
+   "location": "Illinois",
+   "posted": "2026-09-30",
+   "url": "https://kcura.wd1.myworkdayjobs.com/external_career_site/job/Illinois/Lead-Software-Engineer---AI-Surfaces_26-0438",
+   "source": "Workday"
+  },
+  {
+   "company": "kcura",
+   "title": "Advanced AI Engineer",
+   "location": "Illinois",
+   "posted": "2026-09-30",
+   "url": "https://kcura.wd1.myworkdayjobs.com/external_career_site/job/Illinois/Advanced-AI-Engineer_26-0433",
+   "source": "Workday"
+  },
+  {
+   "company": "icwgroup",
+   "title": "Cloud Security Engineer III (AI/ML Platforms)",
+   "location": "San Diego, CA",
+   "posted": "2026-09-30",
+   "url": "https://icwgroup.wd5.myworkdayjobs.com/icw/job/San-Diego-CA/Cloud-and-AI-ML-Platform-Security-Engineer_JR101307",
+   "source": "Workday"
+  },
+  {
+   "company": "harman",
+   "title": "Audio ML Engineer (Research)",
+   "location": "Northridge - California, USA",
+   "posted": "2026-09-30",
+   "url": "https://harman.wd3.myworkdayjobs.com/harman/job/Northridge---California-USA/Audio-ML-Engineer--Research-_R-51858-2026",
+   "source": "Workday"
+  },
+  {
+   "company": "etsy",
+   "title": "Senior Machine Learning Engineer, Recommendations Retrieval",
+   "location": "Brooklyn, New York",
+   "posted": "2026-09-30",
+   "url": "https://etsy.wd5.myworkdayjobs.com/etsy_careers/job/Brooklyn-New-York/Senior-Machine-Learning-Engineer--Recommendations-Retrieval_JR5959-1",
+   "source": "Workday"
+  },
+  {
+   "company": "elanco",
+   "title": "ML Engineer– Drug Discovery & R&D Operations",
+   "location": "Indianapolis, IN",
+   "posted": "2026-09-30",
+   "url": "https://elanco.wd5.myworkdayjobs.com/external_career/job/Indianapolis-IN/Advisor-R-D_R0026725-1",
+   "source": "Workday"
+  },
+  {
+   "company": "clearwateranalytics",
+   "title": "Gen AI Solutions Engineer, Investment Solutions",
+   "location": "Office - New York",
+   "posted": "2026-09-30",
+   "url": "https://clearwateranalytics.wd1.myworkdayjobs.com/clearwater_analytics_careers/job/Office---New-York/Gen-AI-Solutions-Engineer--Investment-Solutions_R11973-1",
+   "source": "Workday"
+  },
+  {
+   "company": "brainco",
+   "title": "Machine Learning Engineer, Platform",
+   "location": "New York City, NY",
+   "posted": "2026-09-30",
+   "url": "https://jobs.ashbyhq.com/brainco/61b10a68-9cf6-47d9-b19b-ca9b817fc264",
+   "source": "Ashby"
+  },
+  {
+   "company": "brainco",
+   "title": "Machine Learning Engineer, Applied AI",
+   "location": "New York City, NY",
+   "posted": "2026-09-30",
+   "url": "https://jobs.ashbyhq.com/brainco/0d74048b-e0e7-4f2d-bc9f-3660f3545ac2",
+   "source": "Ashby"
+  },
+  {
+   "company": "Schrödinger",
+   "title": "Scientific Machine Learning Engineer",
+   "location": "New York",
+   "posted": "2026-09-30",
+   "url": "https://job-boards.greenhouse.io/schrdinger/jobs/8008663003",
+   "source": "Greenhouse"
+  },
+  {
+   "company": "Appnovation Technologies",
+   "title": "AgentCore Platform Engineer",
+   "location": "New York, Austin, Miami, Dallas",
+   "posted": "2026-09-30",
+   "url": "https://job-boards.greenhouse.io/appnovation/jobs/8859133002",
+   "source": "Greenhouse"
+  },
+  {
+   "company": "Cerebras",
+   "title": "AI and Automation Engineer - Business Systems",
+   "location": "Sunnyvale, CA",
+   "posted": "2026-09-30",
+   "url": "https://jobs.ashbyhq.com/cerebras/5ddcef34-82e8-4e20-9938-47aa49e6418d",
+   "source": "Ashby"
+  }
+ ],
+ "demand": {
+  "date": "2026-09-30",
+  "jds": 392,
+  "finance_jds": 72,
+  "rows": [
+   {
+    "requirement": "Workflow automation",
+    "finance": 85,
+    "all": 74
+   },
+   {
+    "requirement": "Production",
+    "finance": 81,
+    "all": 76
+   },
+   {
+    "requirement": "Ship / end-to-end",
+    "finance": 78,
+    "all": 66
+   },
+   {
+    "requirement": "Ownership / ambiguity",
+    "finance": 75,
+    "all": 67
+   },
+   {
+    "requirement": "Customers / stakeholders",
+    "finance": 71,
+    "all": 77
+   },
+   {
+    "requirement": "Python",
+    "finance": 69,
+    "all": 66
+   },
+   {
+    "requirement": "Agents / agentic",
+    "finance": 62,
+    "all": 62
+   },
+   {
+    "requirement": "Latency / performance",
+    "finance": 62,
+    "all": 59
+   },
+   {
+    "requirement": "Observability / monitoring",
+    "finance": 60,
+    "all": 49
+   },
+   {
+    "requirement": "Data pipelines",
+    "finance": 56,
+    "all": 56
+   },
+   {
+    "requirement": "APIs / backend",
+    "finance": 54,
+    "all": 52
+   },
+   {
+    "requirement": "LLM",
+    "finance": 49,
+    "all": 54
+   },
+   {
+    "requirement": "Fraud / risk",
+    "finance": 46,
+    "all": 24
+   },
+   {
+    "requirement": "Correctness / consistency",
+    "finance": 43,
+    "all": 34
+   }
+  ]
+ }
+}
