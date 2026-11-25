@@ -123,7 +123,7 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);font-si
 .jobs td.date,.nums2 td.n{font-variant-numeric:tabular-nums}
 .jobs td.date{white-space:nowrap}
 .nums2 td.n,.nums2 th.n{text-align:right;padding-right:0;padding-left:8px;white-space:nowrap}
-@media (max-width:560px){
+@media (max-width:760px){
   .jobs,.jobs tbody{display:block}
   .jobs thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
   .jobs tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:10px 0;border-bottom:1px solid var(--line)}
@@ -263,10 +263,15 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);font-si
       const dm = d.demand;
       $("demand-note").textContent = `From ${fmt(dm.jds)} real job ${plural(dm.jds, "description", "descriptions")} (${fmt(dm.finance_jds)} at finance companies), ${dm.date}. A description counts once if it mentions the requirement — a direction, not an exact measure.`;
       $("demand-rows").innerHTML = (dm.rows || []).map((r) => `<tr><td>${esc(r.requirement)}</td><td class="n">${pct(r.finance)}</td><td class="n">${pct(r.all)}</td></tr>`).join("") || emptyRow(3, "No requirement counts in last night's run.");
+    } else {
+      $("demand-note").textContent = unavailable;
+      $("demand-rows").innerHTML = emptyRow(3, unavailable);
     }
   }).catch(() => {
     $("updated").textContent = unavailable;
     $("stats").innerHTML = `<p class="empty">${unavailable}</p>`;
+    $("bars").innerHTML = `<p class="empty">${unavailable}</p>`;
+    $("demand-note").textContent = unavailable;
     $("recent").innerHTML = emptyRow(5, unavailable);
     $("demand-rows").innerHTML = emptyRow(3, unavailable);
   });
